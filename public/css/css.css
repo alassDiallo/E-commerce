@@ -1,0 +1,125 @@
+li{
+    text-decoration: none ;
+    list-style:none;
+}
+.bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
+  @media (min-width: 768px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+  / * stylelint-disable selector-list-comma-newline-after * /
+
+.blog-header {
+hauteur de ligne: 1;
+bordure inférieure: 1px solide # e5e5e5;
+}
+
+.blog-header-logo {
+famille de polices: "Playfair Display", Géorgie, "Times New Roman", empattement;
+taille de police: 2,25rem;
+}
+
+.blog-header-logo: survoler {
+décoration de texte: aucune;
+}
+
+h1, h2, h3, h4, h5, h6 {
+famille de polices: "Playfair Display", Géorgie, "Times New Roman", empattement;
+}
+
+.display-4 {
+taille de police: 2.5rem;
+}
+@media (min-width: 768px) {
+.display-4 {
+taille de police: 3rem;
+}
+}
+
+.nav-scroller {
+position: relative;
+indice z: 2;
+hauteur: 2,75rem;
+débordement-y: caché;
+}
+
+.nav-scroller .nav {
+affichage: -ms-flexbox;
+affichage: flex;
+-ms-flex-wrap: nowrap;
+flex-wrap: nowrap;
+rembourrage en bas: 1rem;
+margin-top: -1px;
+overflow-x: auto;
+alignement du texte: centre;
+espace blanc: nowrap;
+-webkit-overflow-scrolling: toucher;
+}
+
+.nav-scroller .nav-link {
+rembourrage-dessus: .75rem;
+rembourrage-bas: .75rem;
+taille de police: .875rem;
+}
+
+.card-img-right {
+hauteur: 100%;
+rayon de bordure: 0 3px 3px 0;
+}
+
+.flex-auto {
+-ms-flex: 0 0 auto;
+flex: 0 0 auto;
+}
+
+.h-250 {hauteur: 250px; }
+@media (min-width: 768px) {
+.h-md-250 {hauteur: 250px; }
+}
+
+/ * Pagination * /
+.blog-pagination {
+marge en bas: 4rem;
+}
+.blog-pagination> .btn {
+rayon-frontière: 2rem;
+}
+
+/ *
+* Articles de blog
+* /
+.blog-post {
+marge en bas: 4rem;
+}
+.blog-post-title {
+marge en bas: .25rem;
+taille de police: 2.5rem;
+}
+.blog-post-meta {
+marge en bas: 1,25rem;
+couleur: # 999;
+}
+
+/ *
+* Bas de page
+* /
+.blog-footer {
+rembourrage: 2,5rem 0;
+couleur: # 999;
+alignement du texte: centre;
+couleur de fond: # f9f9f9;
+border-top: .05rem solid # e5e5e5;
+}
+.blog-footer p: dernier enfant {
+marge en bas: 0;
+}
