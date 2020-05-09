@@ -32,27 +32,60 @@
     <div class="container">
   <header class="blog-header py-3">
     <div class="row flex-nowrap justify-content-between align-items-center">
-      <div class="col-4 pt-1">
-      <a class="text-muted" href="{{ route('cart.index') }}">Panier <span class="badge badge-pill badge-dark">{{ Cart::count() }}</span></a>
+      <div class="col-3 pt-1">
+      <a class="text-muted" href="{{ route('cart.index') }}"><i class="fa fa-shopping-cart mr-2" height="24"></i>Panier <span class="badge badge-pill badge-dark">{{ Cart::count() }}</span></a>
       </div>
-      <div class="col-4 text-center">
+      <div class="col-3 text-center">
       <a class="blog-header-logo text-dark" href="{{ route('produits.index') }}"><h5>SUNU SUPER<h5></a>
       </div>
-      <div class="col-4 d-flex justify-content-end align-items-center">
-        @include('layouts.partials._partial')
+      <div class="col-3 d-flex justify-content-end align-items-center">
+
         @include('layouts.partials.auth')
       </div>
     </div>
   </header>
 
-  <div class="nav-scroller py-1 mb-2">
-    <nav class="nav d-flex justify-content-between">
-        @foreach (App\Models\Categorie::all() as $categorie)
-    <a class="p-2 text-muted" href="{{ route('produits.index',['categorie'=>$categorie->slug]) }}"> {{ $categorie->nom   }}</a>
-        @endforeach
+  <div class="col-lg-12 mb-4">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand" href="#">Navbar</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">A propos</a>
+          </li>
+          <li class="nav-item dropdown cat">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             Categoties
+            </a>
+            <div class="dropdown-menu menuCat" aria-labelledby="navbarDropdown">
+              @foreach (App\Models\Categorie::all() as $categorie)
+      <a class="dropdown-item" style=""  href="{{ route('produits.index',['categorie'=>$categorie->slug]) }}"> {{ $categorie->nom   }}</a>
+          @endforeach
+            </div>
+          </li>
+        </ul>
+        <form action="{{ route('produits.recherche') }}" class="form-inline my-2 my-lg-0">
+          <div class="form-group mb-0 mr-1">
+          <input type="search" class="form-control mr-sm-2 @error('recherche') has-invalid @enderror" name="recherche" placeholder="recherche" value="{{  request()->recherche ?? ''  }}" aria-label="Search"/>
+              @error('recheche')
+          <span style="color:red">{{ $message }}</span>
+              @enderror
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">rechercher</button>
+        <!--<form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>-->
+        </form>
+      </div>
     </nav>
   </div>
+  <div class="container">
   @if(session('message'))
   <div class="alert alert-success">
       {{ session('message') }}
@@ -71,19 +104,41 @@
   <div class="row mb-2">
     @yield('content')
 </div>
-
-
-      <nav class="blog-pagination">
-        <a class="btn btn-outline-primary" href="#">Older</a>
-        <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
-      </nav>
+  </div>
+</div>
+<footer class="col-lg-12 blog-footer bg-dark" style="color:white;">
+    <div class="row container">
+  <div class="col-lg-4">
+    &copy copyright <a href="https://getbootstrap.com/">al hassane diallo</a>SamaTenu<a href="https://twitter.com/mdo">@mdo</a>.</p>
+  </div>
+  <div class="col-lg-4">
+    <h4>Service Client</h4>
+    <ul class="list list-block">
+      <li><a href="www.gmail.com"> alassdiallo58@gmail.com</a></li>
+      <li>Telephone : 774298343</li>
+    </ul>
+  </div>
+  <div class="col-lg-4 text-center mt-3" style="color:white;">
+    <h4>SuiveZ nous sur</h4>
+    <a style="height:50px;" href="https://www.facebook.com/PadLigne-589417881567431/"><i class="fa fa-facebook-official" ></i></a>
+    <a><i class="fa fa-twitter-square"></i></a>
+    <a><i class="fa fa-instagram"></i></a>
+  </div>
     </div>
-<footer class="blog-footer">
-  <p>Blog template built for <a href="https://getbootstrap.com/">Bootstrap</a> by <a href="https://twitter.com/mdo">@mdo</a>.</p>
-  <p>
-    <a href="#">Back to top</a>
-  </p>
-</footer>
+    <p>
+      <a href="#">Retourner en haut</a>
+    </p>
+  </footer>
+
 @yield('extra-js')
+<script src="{{ asset('js/jquery-3.5.1.js') }}"></script>
+<script>
+    $(document).ready(function(){
+       $('.menuCat').hide();
+       $('.cat').hover(
+        function(){$('.menuCat').show();},function(){$('.menuCat').hide();}
+       );
+    });
+    </script>
 </body>
 </html>

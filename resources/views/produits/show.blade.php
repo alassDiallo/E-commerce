@@ -14,8 +14,10 @@
           <form action="{{ route('cart.store') }}" method="POST">
               @csrf
           <input type="hidden" name="produit_id" value="{{ $produit->id }}">
-              <button class="btn btn-success" type="submit" >Ajouter a mon panier</button>
-          </form>
+          <div class="iput-group">
+             <i class="input-add-on fa fa-send-o"></i><button class="btn btn-success" type="submit" >Ajouter a mon panier</button>
+          </div>
+            </form>
           </div>
           <div class="col-auto d-none d-lg-block">
           <img src="{{ asset('storage/'.$produit->image) }}">

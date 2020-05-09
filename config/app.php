@@ -173,7 +173,9 @@ return [
          * Application Service Providers...
          */
         App\Providers\AppServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
+        //Barryvdh\DomPDF\ServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
@@ -205,6 +207,7 @@ return [
         'Config' => Illuminate\Support\Facades\Config::class,
         'Cookie' => Illuminate\Support\Facades\Cookie::class,
         'Crypt' => Illuminate\Support\Facades\Crypt::class,
+        'Image' => Intervention\Image\Facades\Image::class,
         'DB' => Illuminate\Support\Facades\DB::class,
         'Eloquent' => Illuminate\Database\Eloquent\Model::class,
         'Event' => Illuminate\Support\Facades\Event::class,

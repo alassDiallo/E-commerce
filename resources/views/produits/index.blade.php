@@ -13,15 +13,15 @@
             <div class="mb-1 text-muted">{{ $produit->created_at->format('d/m/Y') }}</div>
             <p class="card-text mb-auto">{{ $produit->sousTitre }}.</p>
           <strong>{{ $produit->getPrix() }}</strong>
-          <a href="{{ route('produits.show',$produit->slug) }}" class="stretched-link btn btn-info">consulter l'article</a>
+          <a href="{{ route('produits.show',$produit->slug) }}" class="stretched-link btn btn-info"><i class="mr-2 fa fa-eye"></i> l'article</a>
           </div>
           <div class="col-auto d-none d-lg-block">
-          <img src="{{ asset('storage/'.$produit->image) }}">
+          <img src="{{ asset('storage/'.$produit->image) }}" width="250" height="250" class="img-thumbnail">
           </div>
         </div>
       </div>
     @endforeach
-    <div class="col-md-12">
+    <div class="col-md-12 text-center mt-4 mb-4" style="margin-left: 350px;">
         {{ $produits->appends(request()->input())->links() }}
     </div>
 
